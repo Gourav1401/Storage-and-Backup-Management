@@ -133,3 +133,14 @@ HPCSA-hpcsa_lab-real      HPCSA-hpcsa_lab_snap-cow
 [root@localhost ~]# lvconvert --merge /dev/mapper/HPCSA-hpcsa_lab_snap
   Merging of volume HPCSA/hpcsa_lab_snap started.
   HPCSA/hpcsa_lab: Merged: 100.00%
+
+if you want to reduce.
+
+[root@localhost ~]# lvreduce -L 3G /dev/mapper/HPCSA-hpcsa_lab
+  New size (768 extents) matches existing size (768 extents).
+
+[root@localhost ~]# lvs
+  LV        VG     Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  hpcsa_lab HPCSA  -wi-a-----   3.00g
+  root      centos -wi-ao---- <17.00g
+  swap      centos -wi-ao----   2.00g
